@@ -1,0 +1,20 @@
+class HelloWorld {
+    
+public static  int gridTraveler(int m, int n, int memo[][]){
+        if(memo[m][n]!=0) return memo[m][n];
+        else if(memo[n][m]!=0) return memo[n][m];
+        if(m == 1 && n == 1) return 1;
+        if(m==0 || n == 0) return 0;
+        memo[m][n] = gridTraveler(m-1, n, memo) + 
+                     gridTraveler(m, n - 1, memo);
+        
+        memo[n][m] = memo[m][n];
+        return memo[m][n];
+    }
+    public static void main(String[] args) {
+        int m = 6;
+        int n = 6;
+        int memo[][] = new int[m+1][n+1];
+        System.out.println(gridTraveler(m, n, memo));
+    }
+}
