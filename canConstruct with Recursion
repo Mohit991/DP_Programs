@@ -1,0 +1,18 @@
+class HelloWorld {
+    public static boolean canConstruct(String target, 
+    String[] wordBank){
+        if(target.equals("")) return true;
+        for(int i=0; i<wordBank.length; i++){
+            if(target.startsWith(wordBank[i])){
+             String suffix = target.substring(wordBank[i].length());
+             if(canConstruct(suffix,wordBank)) return true;
+            }
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        String target = "abcdef";
+        String wordBank[] = {"ab","abc","cd","def","abcd"};
+        System.out.println(canConstruct(target, wordBank)); 
+    }
+}
