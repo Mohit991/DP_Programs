@@ -1,0 +1,21 @@
+import java.util.*;
+class Main {
+    public static int countConstruct(String target, String[] wordBank){
+        if(target.equals("")) return 1;
+        int totalCount = 0;
+        for(int i=0; i<wordBank.length; i++){
+            if(target.startsWith(wordBank[i])){
+                int noOfWaysForRest = countConstruct(target.substring(wordBank[i].length()), wordBank);
+                totalCount += noOfWaysForRest;
+            }
+        }
+        return totalCount;
+    }
+    
+    public static void main(String[] args) {
+        String target = "abb";
+        String wordBank[] = {"a", "ab", "abb", "b"};
+        // HashMap<String, integer> map = new HashMap<>();
+        System.out.println(countConstruct(target, wordBank)); 
+    }
+}
