@@ -4,7 +4,7 @@ class HelloWorld {
         return fib(n-1) + fib(n-2);
     }
     public static void main(String[] args) {
-        int res = fib(7);
+        int res = fib(10);
         System.out.println(res); 
     }
 }
