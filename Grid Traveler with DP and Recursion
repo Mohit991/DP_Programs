@@ -8,7 +8,7 @@ public static  int gridTraveler(int m, int n, int memo[][]){
         memo[m][n] = gridTraveler(m-1, n, memo) + 
                      gridTraveler(m, n - 1, memo);
         
-        memo[n][m] = memo[m][n];
+        memo[n][m] = memo[m][n];  
         return memo[m][n];
     }
     public static void main(String[] args) {
